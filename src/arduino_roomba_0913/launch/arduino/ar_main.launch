@@ -1,0 +1,9 @@
+<launch>
+
+ <!-- nodeA -->
+  <node pkg = "arduino_roomba" name="cycle" type="cycle_node.py"/>
+
+ <!-- main -->
+  <node pkg = "arduino_roomba" name="main" type="main_node.py"/>
+
+</launch>

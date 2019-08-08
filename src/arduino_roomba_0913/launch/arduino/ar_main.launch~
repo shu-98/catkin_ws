@@ -1,0 +1,9 @@
+<launch>
+
+ <!-- nodeA -->
+  <node pkg = "roomba_st" name="nodeA" type="nodeA_ar2.py"/>
+
+ <!-- main -->
+  <node pkg = "roomba_st" name="main" type="main.py"/>
+
+</launch>

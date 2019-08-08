@@ -1,0 +1,8 @@
+prefix=/home/sou/catkin_ws/install
+
+Name: roomba_500_series
+Description: Description of roomba_500_series
+Version: 2.0.1
+Cflags: -I/home/sou/catkin_ws/install/include
+Libs: -L/home/sou/catkin_ws/install/lib 
+Requires: roscpp rosconsole geometry_msgs geometry_msgs

@@ -1,0 +1,13 @@
+<launch>
+
+ <!-- Roomba Node-->
+  <node pkg="roomba_500_series" type="roomba500_light_node" name="Roomba"/>
+
+ <!-- Axes -->
+  <param name="axis_linear" value="1" type="int"/>
+  <param name="axis_angular" value="0" type="int"/>
+  <param name="scale_linear" value="0.075" type="double"/>
+  <param name="scale_angular" value="0.75" type="double"/>
+  <node pkg="learning_joy" type="turtle_teleop_joy" name="teleop"/>
+
+</launch>

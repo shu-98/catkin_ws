@@ -1,0 +1,2 @@
+arduino_roomba_0913:cereal_port-master:learning_joy:roomba_500_series-master
+-DCATKIN_DEVEL_PREFIX=/home/sou/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/sou/catkin_ws/install -G Unix Makefiles
