@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
 
-## GPIOピン（18,19）に繋げればそのあま使える？
+## GPIOピン(18,19)に繋げればそのあま使える？
 
 import rospy
 from std_msgs.msg import String
