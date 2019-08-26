@@ -7,5 +7,6 @@
 subdirs(gtest)
 subdirs(arduino_roomba_0913)
 subdirs(cereal_port-master)
+subdirs(gscam)
 subdirs(roomba_500_series-master)
 subdirs(learning_joy)

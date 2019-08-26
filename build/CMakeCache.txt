@@ -206,6 +206,9 @@ EXECUTABLE_OUTPUT_PATH:PATH=
 //The directory containing a CMake configuration file for GMock.
 GMock_DIR:PATH=GMock_DIR-NOTFOUND
 
+//Dependencies for the target
+GSCamNodelet_LIB_DEPENDS:STATIC=general;gscam;general;/opt/ros/kinetic/lib/libimage_transport.so;general;/opt/ros/kinetic/lib/libmessage_filters.so;general;/opt/ros/kinetic/lib/libnodeletlib.so;general;/usr/lib/x86_64-linux-gnu/libuuid.so;general;/opt/ros/kinetic/lib/libbondcpp.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/kinetic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/kinetic/lib/libroslib.so;general;/opt/ros/kinetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/kinetic/lib/libcamera_info_manager.so;general;/opt/ros/kinetic/lib/libcamera_calibration_parsers.so;general;/opt/ros/kinetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/opt/ros/kinetic/lib/librosconsole.so;general;/opt/ros/kinetic/lib/librosconsole_log4cxx.so;general;/opt/ros/kinetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/kinetic/lib/libxmlrpcpp.so;general;/opt/ros/kinetic/lib/libroscpp_serialization.so;general;/opt/ros/kinetic/lib/librostime.so;general;/opt/ros/kinetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;general;gstapp-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
+
 //Path to a file.
 GTEST_INCLUDE_DIR:PATH=/usr/include
 
@@ -232,6 +235,9 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests-2.7
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
@@ -281,6 +287,18 @@ arduino_roomba_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/arduino_roomba_0913
 //Value Computed by CMake
 arduino_roomba_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/arduino_roomba_0913
 
+//The directory containing a CMake configuration file for bond.
+bond_DIR:PATH=/opt/ros/kinetic/share/bond/cmake
+
+//The directory containing a CMake configuration file for bondcpp.
+bondcpp_DIR:PATH=/opt/ros/kinetic/share/bondcpp/cmake
+
+//The directory containing a CMake configuration file for camera_calibration_parsers.
+camera_calibration_parsers_DIR:PATH=/opt/ros/kinetic/share/camera_calibration_parsers/cmake
+
+//The directory containing a CMake configuration file for camera_info_manager.
+camera_info_manager_DIR:PATH=/opt/ros/kinetic/share/camera_info_manager/cmake
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/kinetic/share/catkin/cmake
 
@@ -295,6 +313,9 @@ cereal_port_LIB_DEPENDS:STATIC=
 
 //Value Computed by CMake
 cereal_port_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/cereal_port-master
+
+//The directory containing a CMake configuration file for class_loader.
+class_loader_DIR:PATH=/opt/ros/kinetic/share/class_loader/cmake
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/kinetic/share/cpp_common/cmake
@@ -345,6 +366,15 @@ gmock_main_LIB_DEPENDS:STATIC=general;-lpthread;
 go_dock_LIB_DEPENDS:STATIC=
 
 //Value Computed by CMake
+gscam_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/gscam
+
+//Dependencies for the target
+gscam_LIB_DEPENDS:STATIC=general;/opt/ros/kinetic/lib/libimage_transport.so;general;/opt/ros/kinetic/lib/libmessage_filters.so;general;/opt/ros/kinetic/lib/libnodeletlib.so;general;/usr/lib/x86_64-linux-gnu/libuuid.so;general;/opt/ros/kinetic/lib/libbondcpp.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/kinetic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/kinetic/lib/libroslib.so;general;/opt/ros/kinetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/kinetic/lib/libcamera_info_manager.so;general;/opt/ros/kinetic/lib/libcamera_calibration_parsers.so;general;/opt/ros/kinetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/opt/ros/kinetic/lib/librosconsole.so;general;/opt/ros/kinetic/lib/librosconsole_log4cxx.so;general;/opt/ros/kinetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/kinetic/lib/libxmlrpcpp.so;general;/opt/ros/kinetic/lib/libroscpp_serialization.so;general;/opt/ros/kinetic/lib/librostime.so;general;/opt/ros/kinetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;general;gstapp-1.0;general;gstbase-1.0;general;gstreamer-1.0;general;gobject-2.0;general;glib-2.0;
+
+//Value Computed by CMake
+gscam_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/gscam
+
+//Value Computed by CMake
 gtest_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/gtest/gtest
 
 //Dependencies for the target
@@ -368,6 +398,9 @@ gtest_force_shared_crt:BOOL=OFF
 
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
+
+//The directory containing a CMake configuration file for image_transport.
+image_transport_DIR:PATH=/opt/ros/kinetic/share/image_transport/cmake
 
 //Dependencies for target
 irobot_oi_LIB_DEPENDS:STATIC=
@@ -393,6 +426,12 @@ message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
 
+//The directory containing a CMake configuration file for nodelet.
+nodelet_DIR:PATH=/opt/ros/kinetic/share/nodelet/cmake
+
+//The directory containing a CMake configuration file for pluginlib.
+pluginlib_DIR:PATH=/opt/ros/kinetic/share/pluginlib/cmake
+
 //Value Computed by CMake
 roomba_500_series_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/roomba_500_series-master
 
@@ -417,6 +456,12 @@ rosgraph_DIR:PATH=/opt/ros/kinetic/share/rosgraph/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/kinetic/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for roslib.
+roslib_DIR:PATH=/opt/ros/kinetic/share/roslib/cmake
+
+//The directory containing a CMake configuration file for rospack.
+rospack_DIR:PATH=/opt/ros/kinetic/share/rospack/cmake
+
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/kinetic/share/rospy/cmake
 
@@ -425,6 +470,9 @@ rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/kinetic/share/sensor_msgs/cmake
+
+//The directory containing a CMake configuration file for smclib.
+smclib_DIR:PATH=/opt/ros/kinetic/share/smclib/cmake
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake
@@ -555,7 +603,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -594,6 +642,8 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.12()]
 //Details about finding Threads
@@ -603,6 +653,78 @@ GMOCK_FROM_SOURCE_INCLUDE_DIRS:INTERNAL=/usr/include
 GMOCK_FROM_SOURCE_LIBRARIES:INTERNAL=gmock
 GMOCK_FROM_SOURCE_LIBRARY_DIRS:INTERNAL=/home/sou/catkin_ws/build/gmock
 GMOCK_FROM_SOURCE_MAIN_LIBRARIES:INTERNAL=gmock_main
+GSTREAMER_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamer-1.0;-I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+GSTREAMER_CFLAGS_I:INTERNAL=
+GSTREAMER_CFLAGS_OTHER:INTERNAL=-pthread
+GSTREAMER_FOUND:INTERNAL=1
+GSTREAMER_INCLUDEDIR:INTERNAL=/usr/include/gstreamer-1.0
+GSTREAMER_INCLUDE_DIRS:INTERNAL=/usr/include/gstreamer-1.0;/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include
+GSTREAMER_LDFLAGS:INTERNAL=-lgstreamer-1.0;-lgobject-2.0;-lglib-2.0
+GSTREAMER_LDFLAGS_OTHER:INTERNAL=
+GSTREAMER_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+GSTREAMER_LIBRARIES:INTERNAL=gstreamer-1.0;gobject-2.0;glib-2.0
+GSTREAMER_LIBRARY_DIRS:INTERNAL=
+GSTREAMER_LIBS:INTERNAL=
+GSTREAMER_LIBS_L:INTERNAL=
+GSTREAMER_LIBS_OTHER:INTERNAL=
+GSTREAMER_LIBS_PATHS:INTERNAL=
+GSTREAMER_PREFIX:INTERNAL=/usr
+GSTREAMER_STATIC_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamer-1.0;-I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+GSTREAMER_STATIC_CFLAGS_I:INTERNAL=
+GSTREAMER_STATIC_CFLAGS_OTHER:INTERNAL=-pthread
+GSTREAMER_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/gstreamer-1.0;/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include
+GSTREAMER_STATIC_LDFLAGS:INTERNAL=-lgstreamer-1.0;-lgmodule-2.0;-pthread;-ldl;-lgobject-2.0;-lffi;-lglib-2.0;-pthread;-lpcre;-pthread
+GSTREAMER_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+GSTREAMER_STATIC_LIBDIR:INTERNAL=
+GSTREAMER_STATIC_LIBRARIES:INTERNAL=gstreamer-1.0;gmodule-2.0;dl;gobject-2.0;ffi;glib-2.0;pcre
+GSTREAMER_STATIC_LIBRARY_DIRS:INTERNAL=
+GSTREAMER_STATIC_LIBS:INTERNAL=
+GSTREAMER_STATIC_LIBS_L:INTERNAL=
+GSTREAMER_STATIC_LIBS_OTHER:INTERNAL=
+GSTREAMER_STATIC_LIBS_PATHS:INTERNAL=
+GSTREAMER_VERSION:INTERNAL=1.8.3
+GSTREAMER_gstreamer-0.10_INCLUDEDIR:INTERNAL=
+GSTREAMER_gstreamer-0.10_LIBDIR:INTERNAL=
+GSTREAMER_gstreamer-0.10_PREFIX:INTERNAL=
+GSTREAMER_gstreamer-0.10_VERSION:INTERNAL=
+GSTREAMER_gstreamer-1.0_INCLUDEDIR:INTERNAL=
+GSTREAMER_gstreamer-1.0_LIBDIR:INTERNAL=
+GSTREAMER_gstreamer-1.0_PREFIX:INTERNAL=
+GSTREAMER_gstreamer-1.0_VERSION:INTERNAL=
+GST_APP_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamer-1.0;-I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+GST_APP_CFLAGS_I:INTERNAL=
+GST_APP_CFLAGS_OTHER:INTERNAL=-pthread
+GST_APP_FOUND:INTERNAL=1
+GST_APP_INCLUDEDIR:INTERNAL=/usr/include/gstreamer-1.0
+GST_APP_INCLUDE_DIRS:INTERNAL=/usr/include/gstreamer-1.0;/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include
+GST_APP_LDFLAGS:INTERNAL=-lgstapp-1.0;-lgstbase-1.0;-lgstreamer-1.0;-lgobject-2.0;-lglib-2.0
+GST_APP_LDFLAGS_OTHER:INTERNAL=
+GST_APP_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+GST_APP_LIBRARIES:INTERNAL=gstapp-1.0;gstbase-1.0;gstreamer-1.0;gobject-2.0;glib-2.0
+GST_APP_LIBRARY_DIRS:INTERNAL=
+GST_APP_LIBS:INTERNAL=
+GST_APP_LIBS_L:INTERNAL=
+GST_APP_LIBS_OTHER:INTERNAL=
+GST_APP_LIBS_PATHS:INTERNAL=
+GST_APP_PREFIX:INTERNAL=/usr
+GST_APP_STATIC_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamer-1.0;-I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+GST_APP_STATIC_CFLAGS_I:INTERNAL=
+GST_APP_STATIC_CFLAGS_OTHER:INTERNAL=-pthread
+GST_APP_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/gstreamer-1.0;/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include
+GST_APP_STATIC_LDFLAGS:INTERNAL=-lgstapp-1.0;-lgstbase-1.0;-lgstreamer-1.0;-lgmodule-2.0;-pthread;-ldl;-lgobject-2.0;-lffi;-lglib-2.0;-pthread;-lpcre;-pthread
+GST_APP_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+GST_APP_STATIC_LIBDIR:INTERNAL=
+GST_APP_STATIC_LIBRARIES:INTERNAL=gstapp-1.0;gstbase-1.0;gstreamer-1.0;gmodule-2.0;dl;gobject-2.0;ffi;glib-2.0;pcre
+GST_APP_STATIC_LIBRARY_DIRS:INTERNAL=
+GST_APP_STATIC_LIBS:INTERNAL=
+GST_APP_STATIC_LIBS_L:INTERNAL=
+GST_APP_STATIC_LIBS_OTHER:INTERNAL=
+GST_APP_STATIC_LIBS_PATHS:INTERNAL=
+GST_APP_VERSION:INTERNAL=1.8.3
+GST_APP_gstreamer-app-1.0_INCLUDEDIR:INTERNAL=
+GST_APP_gstreamer-app-1.0_LIBDIR:INTERNAL=
+GST_APP_gstreamer-app-1.0_PREFIX:INTERNAL=
+GST_APP_gstreamer-app-1.0_VERSION:INTERNAL=
 GTEST_FROM_SOURCE_FOUND:INTERNAL=TRUE
 GTEST_FROM_SOURCE_INCLUDE_DIRS:INTERNAL=/usr/include
 GTEST_FROM_SOURCE_LIBRARIES:INTERNAL=gtest
@@ -618,10 +740,15 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.
 //  And it needs to match.  But setuptools won't tell us where
 // it will install things.
 PYTHON_INSTALL_DIR:INTERNAL=lib/python2.7/dist-packages
+__pkg_config_checked_GSTREAMER:INTERNAL=1
+__pkg_config_checked_GST_APP:INTERNAL=1
+prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
 
