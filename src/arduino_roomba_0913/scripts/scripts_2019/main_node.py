@@ -132,6 +132,7 @@ def serial_connect(data_right, data_left):
         wiringpi.pwmWrite( servo_pin1, move_deg1 )
         wiringpi.pwmWrite( servo_pin2, move_deg2 )
         ## GPIO
+        writecsv.writerow([date, str(second), str(joy_x), str(joy_z), str(cycle_flag), '0'])
         first_flag = 1
         cycle_flag = 0
     #time.sleep(0.1)
