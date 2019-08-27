@@ -98,6 +98,12 @@ program_start_time = 0.0
 prev_right = temp_right
 prev_left = temp_left
 
+## acce
+acce_left = 0.0
+acce_front = 0.0
+acce_up = 0.0
+## acce
+
 print "init-option"
 print "RIGHT_MAX = %d, RIGHT_MIN = %d" % (RIGHT_MAX, RIGHT_MIN)
 print "LEFT_MAX  = %d, LEFT_MIN  = %d" % (LEFT_MAX, LEFT_MIN)
@@ -141,6 +147,13 @@ def decide_angle(data):
     temp_left += int(data.axes[1]*SPEED_AN + data.axes[0]*TURN_AN)
     joy_x = data.axes[1]
     joy_z = data.axes[0]
+
+    ##　加速度
+    acce_left = data.axes[6]
+    acce_front = data.axes[7]
+    acce_up = data.axes[8]
+    ##　加速度
+
     move()
 
 def callback(data):

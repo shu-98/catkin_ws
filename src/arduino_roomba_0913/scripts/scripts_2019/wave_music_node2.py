@@ -17,6 +17,9 @@ buffer_size = 4096
 
 cnt = 0
 
+first_flag = 1
+pub = rospy.Publisher('cmd_MC', Int16, queue_size=10)
+
 def music(data):
     global cnt
 
@@ -30,6 +33,11 @@ def music(data):
     time.sleep(cnt*0.03)
 
     rospy.loginfo("Starting music...")
+    if first_flag == 1:
+        pub.publish(1)  ## main_nodeに音楽が開始したことを伝える（log用の）
+        first_flag = 0
+    else:
+        pass
 
     wav_file = wave.open ( input_filename , 'rb' )
     p = pyaudio.PyAudio ()

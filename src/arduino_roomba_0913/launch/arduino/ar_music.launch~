@@ -1,9 +1,0 @@
-<launch>
-
- <!-- timing node -->
-  <node pkg = "arduino_roomba" name="timing" type="timing_node.py"/>
-
- <!-- music node -->
-  <node pkg = "arduino_roomba" name="music" type="music_node.py"/>
-
-</launch>

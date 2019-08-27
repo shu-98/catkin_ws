@@ -70,7 +70,7 @@ def shutdown():
     rospy.loginfo("Stopping the Roomba...")
 
 if __name__ == '__main__':
-    rospy.init_node('node_bib', anonymous=True)
+    rospy.init_node('node_vib', anonymous=True)
 
     #cmd_ACへのメッセージを受け取るとcallback1を実行
     rospy.Subscriber('cmd_AC', Int16, callback)
