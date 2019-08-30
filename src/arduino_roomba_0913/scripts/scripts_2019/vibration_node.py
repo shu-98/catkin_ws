@@ -61,6 +61,7 @@ p = f.new_effect(1.0, 1.0, TIME_DELTA )
 
 def callback(data):
     f.play_efect((p))
+    print("vib!")
     time.sleep(TIME_DELTA / 1000.0)
     f.stop_effect((p))
 
