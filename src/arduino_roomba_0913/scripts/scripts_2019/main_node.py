@@ -12,7 +12,6 @@ from nav_msgs.msg import Odometry
 from std_msgs.msg import String
 from sensor_msgs.msg import Joy
 import time
-import pygame.mixer
 #import datetime
 import sys
 
