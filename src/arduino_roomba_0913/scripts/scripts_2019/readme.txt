@@ -1,10 +1,12 @@
 ラズパイ側
-・roslaunch arduino_roomba ar_roomba.launch
+・ar_roomba.launch
 
 PC側
 ・joy_node
 ・cycle_node
 ・vibration_node
+・ar_music.launch(?)
+・main_node(?)
 
 ar_roomba.launchの前には，
 ・ラズパイにシリアルケーブルを挿す

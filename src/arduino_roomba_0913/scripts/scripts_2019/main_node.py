@@ -24,7 +24,7 @@ import time
 
 # サーボモータに接続したGPIO端子番号を指定
 servo_pin1  =  18
-servo_pin2  =  19
+servo_pin2  =  12
 # サーボモータを動かす角度を指定する
 set_degree = 0
 wiringpi.wiringPiSetupGpio()
@@ -50,10 +50,6 @@ filename = "/home/roomba/catkin_ws/src/arduino_roomba/scripts/log/log_%s.csv" % 
 writecsv = csv.writer(file(filename, 'w'), lineterminator='\n') # 書き込みファイルの設定
 writecsv.writerow(['datetime', 'second', 'joy_x', 'joy_z', 'tempo', 'bgm_start'])
 
-# arduino
-import serial
-ser = serial.Serial('/dev/ttyACM0', 9600)   #　差し直しなどでttyACM0以外の時は適宜変更
-
 #　サーボの初期設定
 RIGHT_INIT = -10
 LEFT_INIT = -7
@@ -70,7 +66,6 @@ LEFT_MIN = LEFT_INIT + 90 - JOY_ANGLE - CYCLE_ANGLE
 RIGHT_MAX = RIGHT_INIT + 90 + JOY_ANGLE + CYCLE_ANGLE
 RIGHT_MIN = RIGHT_INIT + 90 - JOY_ANGLE - CYCLE_ANGLE
 
-#pub1 = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 zigflag = 0
 
 #　平行になる値
@@ -79,7 +74,6 @@ temp_left = LEFT_INIT + 90
 
 angle_right = 0
 angle_left = 0
-buff = "" #arduinoに送る文字列
 cycle_flag = 0
 
 first_flag = 0
@@ -97,12 +91,6 @@ program_start_time = 0.0
 
 prev_right = temp_right
 prev_left = temp_left
-
-## acce
-acce_left = 0.0
-acce_front = 0.0
-acce_up = 0.0
-## acce
 
 print "init-option"
 print "RIGHT_MAX = %d, RIGHT_MIN = %d" % (RIGHT_MAX, RIGHT_MIN)
@@ -149,12 +137,6 @@ def decide_angle(data):
     joy_x = data.axes[1]
     joy_z = data.axes[0]
 
-    ##　加速度
-    acce_left = data.axes[6]
-    acce_front = data.axes[7]
-    acce_up = data.axes[8]
-    ##　加速度
-
     move()
 
 def callback(data):
@@ -183,19 +165,21 @@ def callback(data):
         if zigflag == 0:
             zigflag = 1
         elif zigflag == 1:
-            zigflag = 2
-        elif zigflag == 2:
-            zigflag = 3
-        elif zigflag == 3:
-            zigflag = 4
-        elif zigflag == 4:
-            zigflag = 5
-        elif zigflag == 5:
-            zigflag = 6
-        elif zigflag == 6:
-            zigflag = 7
-        elif zigflag == 7:
             zigflag = 0
+        # elif zigflag == 1:
+        #     zigflag = 2
+        # elif zigflag == 2:
+        #     zigflag = 3
+        # elif zigflag == 3:
+        #     zigflag = 4
+        # elif zigflag == 4:
+        #     zigflag = 5
+        # elif zigflag == 5:
+        #     zigflag = 6
+        # elif zigflag == 6:
+        #     zigflag = 7
+        # elif zigflag == 7:
+        #     zigflag = 0
         cycle_flag = 1
 
     temp_right = prev_right
@@ -241,30 +225,30 @@ def move():
             temp_right += 0
             #temp_left += -CYCLE_AN  #　左右非対称
             temp_left += 0    #　左右対称
-        elif zigflag == 2:
-            temp_right += CYCLE_AN
-            #temp_left += -CYCLE_AN  #　左右非対称
-            temp_left += -CYCLE_AN    #　左右対称
-        elif zigflag == 3:
-            temp_right += 0
-            #temp_left += -CYCLE_AN  #　左右非対称
-            temp_left += 0    #　左右対称
-        elif zigflag == 4:
-            temp_right += CYCLE_AN
-            #temp_left += -CYCLE_AN  #　左右非対称
-            temp_left += -CYCLE_AN    #　左右対称
-        elif zigflag == 5:
-            temp_right += 0
-            #temp_left += -CYCLE_AN  #　左右非対称
-            temp_left += 0    #　左右対称
-        elif zigflag == 6:
-            temp_right += CYCLE_AN
-            #temp_left += -CYCLE_AN  #　左右非対称
-            temp_left += -CYCLE_AN    #　左右対称
-        elif zigflag == 7:
-            temp_right += 0
-            #temp_left += -CYCLE_AN  #　左右非対称
-            temp_left += 0   #　左右対称
+        # elif zigflag == 2:
+        #     temp_right += CYCLE_AN
+        #     #temp_left += -CYCLE_AN  #　左右非対称
+        #     temp_left += -CYCLE_AN    #　左右対称
+        # elif zigflag == 3:
+        #     temp_right += 0
+        #     #temp_left += -CYCLE_AN  #　左右非対称
+        #     temp_left += 0    #　左右対称
+        # elif zigflag == 4:
+        #     temp_right += CYCLE_AN
+        #     #temp_left += -CYCLE_AN  #　左右非対称
+        #     temp_left += -CYCLE_AN    #　左右対称
+        # elif zigflag == 5:
+        #     temp_right += 0
+        #     #temp_left += -CYCLE_AN  #　左右非対称
+        #     temp_left += 0    #　左右対称
+        # elif zigflag == 6:
+        #     temp_right += CYCLE_AN
+        #     #temp_left += -CYCLE_AN  #　左右非対称
+        #     temp_left += -CYCLE_AN    #　左右対称
+        # elif zigflag == 7:
+        #     temp_right += 0
+        #     #temp_left += -CYCLE_AN  #　左右非対称
+        #     temp_left += 0   #　左右対称
 
     curr_time = input_time()
     serial_connect(temp_right, temp_left)
@@ -289,6 +273,5 @@ def listener():
     rospy.spin()
 
 if __name__ == '__main__':
-    time.sleep(1.5) # Arduinoの起動時間待機
     program_start_time = input_time()
     listener()
