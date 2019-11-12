@@ -5,7 +5,8 @@ import fcntl, struct, array, time
 import rospy
 from std_msgs.msg import Int16
 
-EVENT_NUM = "/dev/input/event13"
+## /dev/input/eventX の"X"を任意のやつを変える ##
+EVENT_NUM = "/dev/input/event15"
 
 EVIOCRMFF = 0x40044581
 EVIOCSFF = 0x40304580

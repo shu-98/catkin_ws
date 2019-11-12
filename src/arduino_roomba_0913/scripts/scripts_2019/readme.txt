@@ -7,6 +7,7 @@ PC側
 ・vibration_node
 ・ar_music.launch(?)
 ・main_node(?)
+・write_log
 
 ar_roomba.launchの前には，
 ・ラズパイにシリアルケーブルを挿す
