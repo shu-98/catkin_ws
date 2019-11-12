@@ -21,14 +21,16 @@ import wiringpi
 # タイマーのライブラリ
 import time
 
+import subprocess
+
 # サーボモータに接続したGPIO端子番号を指定
-servo_pin1  =  18
-servo_pin2  =  12
+servo_pin1  =  12
+servo_pin2  =  13
 # サーボモータを動かす角度を指定する
 set_degree = 0
 wiringpi.wiringPiSetupGpio()
 # ハードウェアPWMで出力する
-wiringpi.pinMode( servo_pin1, 2 )    # 1=INPUT, 2=OUTPUT (?)
+wiringpi.pinMode( servo_pin1, 2 )
 wiringpi.pinMode( servo_pin2, 2 )
 # サーボモータに合わせたPWM波形の設定
 wiringpi.pwmSetMode(0)
@@ -47,11 +49,6 @@ RIGHT_INIT = -10
 LEFT_INIT = -7
 JOY_ANGLE = 15
 CYCLE_ANGLE = 10
-
-# DEFINE
-SPEED_AN = JOY_ANGLE
-TURN_AN = JOY_ANGLE
-CYCLE_AN = CYCLE_ANGLE
 
 LEFT_MAX = LEFT_INIT + 90 + JOY_ANGLE + CYCLE_ANGLE
 LEFT_MIN = LEFT_INIT + 90 - JOY_ANGLE - CYCLE_ANGLE
@@ -177,6 +174,8 @@ def shutdown():
     # Always stop the Roomba when shutting down the node.
     wiringpi.pwmWrite( servo_pin1, 0 )
     wiringpi.pwmWrite( servo_pin2, 0 )
+    subprocess.call("gpio -g mode %s IN" % (servo_pin1), shell=True)
+    subprocess.call("gpio -g mode %s IN" % (servo_pin2), shell=True)
     rospy.loginfo("Stopping robot's ears...")
 
 def listener():
