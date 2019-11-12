@@ -4,23 +4,10 @@
 ## GPIOピン(18,19)に繋げればそのあま使える？
 
 import rospy
-from std_msgs.msg import String
 from std_msgs.msg import Int16
-from std_msgs.msg import Float64
-from geometry_msgs.msg import Twist
-from nav_msgs.msg import Odometry
-from std_msgs.msg import String
-from sensor_msgs.msg import Joy
-import time
 import datetime
 import sys
-
-## GPIO
-# GPIOを制御するライブラリ
 import wiringpi
-# タイマーのライブラリ
-import time
-
 import subprocess
 
 # サーボモータに接続したGPIO端子番号を指定
@@ -46,7 +33,7 @@ wiringpi.pwmWrite( servo_pin2, move_deg )
 
 #　サーボの初期設定
 SERVO_INIT = 60
-
+CYCLE_AN = 15
 zigflag = 0
 
 #　平行になる値
@@ -62,15 +49,16 @@ print("init-option")
 print("")
 
 def input_time():
-    t = datetime.today()
+    t = datetime.datetime.today()
     d = t.hour*3600 + t.minute*60 + t.second +  t.microsecond*0.000001
     return d
 
 def serial_connect(data_right, data_left):
-    print("%s, %s" % (data_left, data_right))
+    # print("%s, %s" % (data_left, data_right))
     # 角度から送り出すPWMのパルス幅を算出する
-    move_deg1 = int( 81 + 41 / 90 * data_right )
-    move_deg2 = int( 81 + 41 / 90 * data_left )
+    move_deg1 = int( 81 + 41 / 90.0 * data_right )
+    move_deg2 = int( 81 + 41 / 90.0 * data_left )
+    print("%s, %s" % (move_deg1, move_deg2))
     # サーボモータにPWMを送り、サーボモータを動かす
     wiringpi.pwmWrite( servo_pin1, move_deg1 )
     wiringpi.pwmWrite( servo_pin2, move_deg2 )
@@ -128,5 +116,4 @@ def listener():
     rospy.spin()
 
 if __name__ == '__main__':
-    program_start_time = input_time()
     listener()
