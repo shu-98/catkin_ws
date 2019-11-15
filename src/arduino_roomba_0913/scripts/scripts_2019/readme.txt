@@ -1,12 +1,12 @@
 ラズパイ側
 ・ar_roomba.launch
+・main_node
 
 PC側
 ・joy_node
 ・cycle_node
 ・vibration_node
 ・ar_music.launch(?)
-・main_node(?)
 ・write_log
 
 ar_roomba.launchの前には，

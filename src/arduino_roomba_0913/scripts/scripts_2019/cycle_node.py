@@ -3,7 +3,6 @@
 
 # thread processing
 from twisted.internet import task, reactor
-import threading
 import datetime
 import time
 
@@ -12,10 +11,6 @@ import rospy
 from std_msgs.msg import Int16
 
 pub = rospy.Publisher('cmd_AC', Int16, queue_size=10)
-
-prev_time = 0.0
-curr_time = 0.0
-time_sub = 0.0
 
 def time_print():
     t = datetime.datetime.today()

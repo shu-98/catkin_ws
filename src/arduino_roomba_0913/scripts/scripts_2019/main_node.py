@@ -10,43 +10,29 @@ import sys
 import wiringpi
 import subprocess
 
-# サーボモータに接続したGPIO端子番号を指定
-servo_pin1  =  12
-servo_pin2  =  13
-# サーボモータを動かす角度を指定する
-set_degree = 0
-wiringpi.wiringPiSetupGpio()
-# ハードウェアPWMで出力する
-wiringpi.pinMode( servo_pin1, 2 )
-wiringpi.pinMode( servo_pin2, 2 )
-# サーボモータに合わせたPWM波形の設定
-wiringpi.pwmSetMode(0)
-wiringpi.pwmSetRange(1024)
-wiringpi.pwmSetClock(375)
-
-# 角度から送り出すPWMのパルス幅を算出する
-move_deg = int( 81 + 41 / 90 * set_degree )
-# サーボモータにPWMを送り、サーボモータを動かす
-wiringpi.pwmWrite( servo_pin1, move_deg )
-wiringpi.pwmWrite( servo_pin2, move_deg )
-## GPIO
+SERVO1  =  12
+SERVO2  =  13
 
 #　サーボの初期設定
-SERVO_INIT = 60
-CYCLE_AN = 15
+SERVO_INIT_DEGREE = 60
+CYCLE_ANGLE = 15
 zigflag = 0
-
-#　平行になる値
-temp_right = SERVO_INIT
-temp_left = SERVO_INIT
 
 cy_curr_time = 500.0
 cy_prev_time = 0.0
-
 cycle_first_flag = 1
 
-print("init-option")
-print("")
+def init_servo(servo1, servo2):
+    wiringpi.wiringPiSetupGpio()
+    wiringpi.pinMode( servo1, 2 )
+    wiringpi.pinMode( servo2, 2 )
+    wiringpi.pwmSetMode(0)
+    wiringpi.pwmSetRange(1024)
+    wiringpi.pwmSetClock(375)
+
+def move_servo(degree, servo):
+    move_deg = int( 81 + 41 / 90.0 * degree )
+    wiringpi.pwmWrite( servo, move_deg )
 
 def input_time():
     t = datetime.datetime.today()
@@ -54,25 +40,19 @@ def input_time():
     return d
 
 def serial_connect(data_right, data_left):
-    # print("%s, %s" % (data_left, data_right))
-    # 角度から送り出すPWMのパルス幅を算出する
-    move_deg1 = int( 81 + 41 / 90.0 * data_right )
-    move_deg2 = int( 81 + 41 / 90.0 * data_left )
+    move_servo(data_right, SERVO1)
+    move_servo(data_left, SERVO2)
     print("%s, %s" % (move_deg1, move_deg2))
-    # サーボモータにPWMを送り、サーボモータを動かす
-    wiringpi.pwmWrite( servo_pin1, move_deg1 )
-    wiringpi.pwmWrite( servo_pin2, move_deg2 )
-    ## GPIO
 
 def callback(data):
     global zigflag
 
-    global temp_right
-    global temp_left
-
     global cycle_first_flag
     global cy_prev_time
     global cy_curr_time
+
+    temp_right = SERVO_INIT_DEGREE
+    temp_left = SERVO_INIT_DEGREE
 
     time_sub = cy_curr_time-cy_prev_time
 
@@ -86,8 +66,8 @@ def callback(data):
             return
     else:
         if zigflag == 0:
-            temp_right += CYCLE_AN
-            temp_left += -CYCLE_AN
+            temp_right += CYCLE_ANGLE
+            temp_left += -CYCLE_ANGLE
             zigflag = 1
         elif zigflag == 1:
             temp_right += 0
@@ -95,15 +75,13 @@ def callback(data):
             zigflag = 0
 
     serial_connect(temp_right, temp_left)
-    temp_right = SERVO_INIT
-    temp_left = SERVO_INIT
 
 def shutdown():
     # Always stop the Roomba when shutting down the node.
-    wiringpi.pwmWrite( servo_pin1, 0 )
-    wiringpi.pwmWrite( servo_pin2, 0 )
-    subprocess.call("gpio -g mode %s IN" % (servo_pin1), shell=True)
-    subprocess.call("gpio -g mode %s IN" % (servo_pin2), shell=True)
+    wiringpi.pwmWrite( SERVO1, 0 )
+    wiringpi.pwmWrite( SERVO2, 0 )
+    subprocess.call("gpio -g mode %s IN" % (SERVO1), shell=True)
+    subprocess.call("gpio -g mode %s IN" % (SERVO2), shell=True)
     rospy.loginfo("Stopping robot's ears...")
 
 def listener():
@@ -116,4 +94,7 @@ def listener():
     rospy.spin()
 
 if __name__ == '__main__':
+    init_servo(SERVO1, SERVO2)
+    move_servo(SERVO_INIT_DEGREE, SERVO1)
+    move_servo(SERVO_INIT_DEGREE, SERVO2)
     listener()

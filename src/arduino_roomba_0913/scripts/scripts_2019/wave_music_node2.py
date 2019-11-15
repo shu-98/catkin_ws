@@ -12,7 +12,7 @@ import datetime
 import wave
 import pyaudio
 import time
-input_filename = "/home/roomba/catkin_ws/src/arduino_roomba/scripts/music/Call_Me_Maybe.wav"
+input_filename = "music/Call_Me_Maybe.wav"
 buffer_size = 4096
 
 cnt = 0
@@ -23,12 +23,6 @@ pub = rospy.Publisher('cmd_MC', Int16, queue_size=10)
 def music(data):
     global cnt
 
-    #time.sleep(0.3)
-    #time.sleep(0.38) #OC一日目
-    #time.sleep(0.08) #OC二日目
-    #time.sleep(0.25) #同じ部屋
-    #time.sleep(0.20) #別部屋8/30
-    #time.sleep(0.25) #別部屋9/05
     time.sleep(0.13) #別部屋9/07 #Skype2台
     time.sleep(cnt*0.03)
 
