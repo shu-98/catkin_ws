@@ -293,6 +293,30 @@ bond_DIR:PATH=/opt/ros/kinetic/share/bond/cmake
 //The directory containing a CMake configuration file for bondcpp.
 bondcpp_DIR:PATH=/opt/ros/kinetic/share/bondcpp/cmake
 
+//Value Computed by CMake
+ca_description_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/create_autonomy/ca_description
+
+//Value Computed by CMake
+ca_description_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/create_autonomy/ca_description
+
+//Value Computed by CMake
+ca_driver_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/create_autonomy/ca_driver
+
+//Value Computed by CMake
+ca_driver_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/create_autonomy/ca_driver
+
+//Value Computed by CMake
+ca_msgs_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/create_autonomy/ca_msgs
+
+//Value Computed by CMake
+ca_msgs_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/create_autonomy/ca_msgs
+
+//Value Computed by CMake
+ca_tools_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/create_autonomy/ca_tools
+
+//Value Computed by CMake
+ca_tools_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/create_autonomy/ca_tools
+
 //The directory containing a CMake configuration file for camera_calibration_parsers.
 camera_calibration_parsers_DIR:PATH=/opt/ros/kinetic/share/camera_calibration_parsers/cmake
 
@@ -319,6 +343,12 @@ class_loader_DIR:PATH=/opt/ros/kinetic/share/class_loader/cmake
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/kinetic/share/cpp_common/cmake
+
+//Value Computed by CMake
+create_autonomy_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/create_autonomy/create_autonomy
+
+//Value Computed by CMake
+create_autonomy_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/create_autonomy/create_autonomy
 
 //The directory containing a CMake configuration file for diagnostic_msgs.
 diagnostic_msgs_DIR:PATH=/opt/ros/kinetic/share/diagnostic_msgs/cmake
@@ -417,6 +447,9 @@ learning_joy_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/learning_joy
 //Path to a library.
 lib:FILEPATH=/opt/ros/kinetic/lib/libxmlrpcpp.so
 
+//The directory containing a CMake configuration file for libcreate.
+libcreate_DIR:PATH=libcreate_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/kinetic/share/message_filters/cmake
 
@@ -433,10 +466,10 @@ nodelet_DIR:PATH=/opt/ros/kinetic/share/nodelet/cmake
 pluginlib_DIR:PATH=/opt/ros/kinetic/share/pluginlib/cmake
 
 //Value Computed by CMake
-roomba_500_series_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/roomba_500_series-master
+roomba_500_series_BINARY_DIR:STATIC=/home/sou/catkin_ws/build/roomba_500_series
 
 //Value Computed by CMake
-roomba_500_series_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/roomba_500_series-master
+roomba_500_series_SOURCE_DIR:STATIC=/home/sou/catkin_ws/src/roomba_500_series
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
@@ -455,6 +488,9 @@ rosgraph_DIR:PATH=/opt/ros/kinetic/share/rosgraph/cmake
 
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/kinetic/share/rosgraph_msgs/cmake
+
+//The directory containing a CMake configuration file for roslaunch.
+roslaunch_DIR:PATH=/opt/ros/kinetic/share/roslaunch/cmake
 
 //The directory containing a CMake configuration file for roslib.
 roslib_DIR:PATH=/opt/ros/kinetic/share/roslib/cmake

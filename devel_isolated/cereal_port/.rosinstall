@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sou/catkin_ws/devel_isolated/cereal_port/setup.sh

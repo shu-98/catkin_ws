@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -shared -Wl,-soname,libgmock.so -o /home/sou/catkin_ws/src/cereal_port-master/lib/libgmock.so CMakeFiles/gmock.dir/usr/src/gtest/src/gtest-all.cc.o CMakeFiles/gmock.dir/src/gmock-all.cc.o -lpthread 

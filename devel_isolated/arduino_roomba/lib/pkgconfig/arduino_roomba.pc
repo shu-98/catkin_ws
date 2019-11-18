@@ -1,0 +1,8 @@
+prefix=/home/sou/catkin_ws/devel_isolated/arduino_roomba
+
+Name: arduino_roomba
+Description: Description of arduino_roomba
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/sou/catkin_ws/devel_isolated/arduino_roomba/lib 
+Requires: 

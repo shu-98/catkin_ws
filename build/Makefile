@@ -864,7 +864,7 @@ actionlib_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_py/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/actionlib_generate_messages_py.dir/build.make roomba_500_series-master/CMakeFiles/actionlib_generate_messages_py.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/actionlib_generate_messages_py.dir/build.make roomba_500_series/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
 #=============================================================================
@@ -877,7 +877,7 @@ actionlib_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_nodejs/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make roomba_500_series-master/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make roomba_500_series/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
 .PHONY : actionlib_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -890,7 +890,7 @@ actionlib_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_lisp/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make roomba_500_series-master/CMakeFiles/actionlib_generate_messages_lisp.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make roomba_500_series/CMakeFiles/actionlib_generate_messages_lisp.dir/build
 .PHONY : actionlib_generate_messages_lisp/fast
 
 #=============================================================================
@@ -903,7 +903,7 @@ tf2_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
 .PHONY : tf2_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -916,7 +916,7 @@ actionlib_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_eus/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/actionlib_generate_messages_eus.dir/build.make roomba_500_series-master/CMakeFiles/actionlib_generate_messages_eus.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/actionlib_generate_messages_eus.dir/build.make roomba_500_series/CMakeFiles/actionlib_generate_messages_eus.dir/build
 .PHONY : actionlib_generate_messages_eus/fast
 
 #=============================================================================
@@ -929,7 +929,7 @@ tf_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_cpp/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf_generate_messages_cpp.dir/build.make roomba_500_series-master/CMakeFiles/tf_generate_messages_cpp.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf_generate_messages_cpp.dir/build.make roomba_500_series/CMakeFiles/tf_generate_messages_cpp.dir/build
 .PHONY : tf_generate_messages_cpp/fast
 
 #=============================================================================
@@ -942,7 +942,7 @@ actionlib_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_cpp/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make roomba_500_series-master/CMakeFiles/actionlib_generate_messages_cpp.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make roomba_500_series/CMakeFiles/actionlib_generate_messages_cpp.dir/build
 .PHONY : actionlib_generate_messages_cpp/fast
 
 #=============================================================================
@@ -955,7 +955,7 @@ tf_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_eus/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf_generate_messages_eus.dir/build.make roomba_500_series-master/CMakeFiles/tf_generate_messages_eus.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf_generate_messages_eus.dir/build.make roomba_500_series/CMakeFiles/tf_generate_messages_eus.dir/build
 .PHONY : tf_generate_messages_eus/fast
 
 #=============================================================================
@@ -968,7 +968,7 @@ roomba500_light_node: cmake_check_build_system
 
 # fast build rule for target.
 roomba500_light_node/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/roomba500_light_node.dir/build.make roomba_500_series-master/CMakeFiles/roomba500_light_node.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/roomba500_light_node.dir/build.make roomba_500_series/CMakeFiles/roomba500_light_node.dir/build
 .PHONY : roomba500_light_node/fast
 
 #=============================================================================
@@ -981,7 +981,7 @@ tf_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_nodejs/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf_generate_messages_nodejs.dir/build.make roomba_500_series-master/CMakeFiles/tf_generate_messages_nodejs.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf_generate_messages_nodejs.dir/build.make roomba_500_series/CMakeFiles/tf_generate_messages_nodejs.dir/build
 .PHONY : tf_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -994,7 +994,7 @@ tf2_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
 .PHONY : tf2_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -1007,7 +1007,7 @@ tf_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_lisp/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf_generate_messages_lisp.dir/build.make roomba_500_series-master/CMakeFiles/tf_generate_messages_lisp.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf_generate_messages_lisp.dir/build.make roomba_500_series/CMakeFiles/tf_generate_messages_lisp.dir/build
 .PHONY : tf_generate_messages_lisp/fast
 
 #=============================================================================
@@ -1020,7 +1020,7 @@ tf2_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -1033,7 +1033,7 @@ tf2_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_eus/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -1046,7 +1046,7 @@ tf2_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_py/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make roomba_500_series-master/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make roomba_500_series/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
 .PHONY : tf2_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -1059,7 +1059,7 @@ go_dock: cmake_check_build_system
 
 # fast build rule for target.
 go_dock/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/go_dock.dir/build.make roomba_500_series-master/CMakeFiles/go_dock.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/go_dock.dir/build.make roomba_500_series/CMakeFiles/go_dock.dir/build
 .PHONY : go_dock/fast
 
 #=============================================================================
@@ -1072,7 +1072,7 @@ irobot_oi: cmake_check_build_system
 
 # fast build rule for target.
 irobot_oi/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/irobot_oi.dir/build.make roomba_500_series-master/CMakeFiles/irobot_oi.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/irobot_oi.dir/build.make roomba_500_series/CMakeFiles/irobot_oi.dir/build
 .PHONY : irobot_oi/fast
 
 #=============================================================================
@@ -1085,7 +1085,7 @@ roomba560_node: cmake_check_build_system
 
 # fast build rule for target.
 roomba560_node/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/roomba560_node.dir/build.make roomba_500_series-master/CMakeFiles/roomba560_node.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/roomba560_node.dir/build.make roomba_500_series/CMakeFiles/roomba560_node.dir/build
 .PHONY : roomba560_node/fast
 
 #=============================================================================
@@ -1098,7 +1098,7 @@ godock_server: cmake_check_build_system
 
 # fast build rule for target.
 godock_server/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/godock_server.dir/build.make roomba_500_series-master/CMakeFiles/godock_server.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/godock_server.dir/build.make roomba_500_series/CMakeFiles/godock_server.dir/build
 .PHONY : godock_server/fast
 
 #=============================================================================
@@ -1111,7 +1111,7 @@ tf_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_py/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/tf_generate_messages_py.dir/build.make roomba_500_series-master/CMakeFiles/tf_generate_messages_py.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/tf_generate_messages_py.dir/build.make roomba_500_series/CMakeFiles/tf_generate_messages_py.dir/build
 .PHONY : tf_generate_messages_py/fast
 
 #=============================================================================
@@ -1124,7 +1124,7 @@ godock_client: cmake_check_build_system
 
 # fast build rule for target.
 godock_client/fast:
-	$(MAKE) -f roomba_500_series-master/CMakeFiles/godock_client.dir/build.make roomba_500_series-master/CMakeFiles/godock_client.dir/build
+	$(MAKE) -f roomba_500_series/CMakeFiles/godock_client.dir/build.make roomba_500_series/CMakeFiles/godock_client.dir/build
 .PHONY : godock_client/fast
 
 #=============================================================================

@@ -120,7 +120,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/sou/catkin_ws/build/arduino_roomba_0913/cmake_install.cmake")
   include("/home/sou/catkin_ws/build/cereal_port-master/cmake_install.cmake")
   include("/home/sou/catkin_ws/build/gscam/cmake_install.cmake")
-  include("/home/sou/catkin_ws/build/roomba_500_series-master/cmake_install.cmake")
+  include("/home/sou/catkin_ws/build/roomba_500_series/cmake_install.cmake")
   include("/home/sou/catkin_ws/build/learning_joy/cmake_install.cmake")
 
 endif()

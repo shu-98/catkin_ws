@@ -1,0 +1,2 @@
+arduino_roomba_0913:cereal_port-master:create_autonomy/ca_description:create_autonomy/ca_driver:create_autonomy/ca_msgs:create_autonomy/ca_tools:create_autonomy/create_autonomy:gscam:learning_joy:libcreate:roomba_500_series
+-G Unix Makefiles -DCATKIN_DEVEL_PREFIX=/home/sou/catkin_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/sou/catkin_ws/install_isolated

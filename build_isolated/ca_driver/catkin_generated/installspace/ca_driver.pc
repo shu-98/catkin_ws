@@ -1,0 +1,8 @@
+prefix=/home/sou/catkin_ws/install_isolated
+
+Name: ca_driver
+Description: Description of ca_driver
+Version: 1.3.0
+Cflags: -I/home/sou/catkin_ws/install_isolated/include -I/home/sou/catkin_ws/devel_isolated/libcreate/include -I/usr/include
+Libs: -L/home/sou/catkin_ws/install_isolated/lib /home/sou/catkin_ws/devel_isolated/libcreate/lib/libcreate.so /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libboost_thread.so /usr/lib/x86_64-linux-gnu/libboost_chrono.so /usr/lib/x86_64-linux-gnu/libboost_date_time.so /usr/lib/x86_64-linux-gnu/libboost_atomic.so /usr/lib/x86_64-linux-gnu/libpthread.so
+Requires: ca_msgs diagnostic_msgs diagnostic_updater geometry_msgs nav_msgs roscpp sensor_msgs std_msgs tf

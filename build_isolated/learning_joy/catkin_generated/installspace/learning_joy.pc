@@ -1,0 +1,8 @@
+prefix=/home/sou/catkin_ws/install_isolated
+
+Name: learning_joy
+Description: Description of learning_joy
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/sou/catkin_ws/install_isolated/lib 
+Requires: 

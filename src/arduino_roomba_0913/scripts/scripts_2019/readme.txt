@@ -11,7 +11,7 @@ PC側
 
 ar_roomba.launchの前には，
 ・ラズパイにシリアルケーブルを挿す
-・sudo chmod 777 /dev/USB0
+・sudo chmod 777 /dev/ttyUSB0
 ・ルンバの電源をつける
 
 joy_nodeの前には，
