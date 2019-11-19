@@ -11,7 +11,7 @@ import datetime
 import wave
 import pyaudio
 import time
-input_filename = "music/Call_Me_Maybe.wav"
+input_filename = "/home/sou/catkin_ws/src/arduino_roomba_0913/scripts/music/Call_Me_Maybe.wav"
 buffer_size = 4096
 
 cnt = 0
@@ -23,7 +23,7 @@ def music(data):
     global cnt
     global first_flag
 
-    time.sleep(0.13) #別部屋9/07 #Skype2台
+    time.sleep(0.1) # 2019/1119
     time.sleep(cnt*0.03)
 
     rospy.loginfo("Starting music...")

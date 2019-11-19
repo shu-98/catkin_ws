@@ -42,7 +42,7 @@ def input_time():
 def serial_connect(data_right, data_left):
     move_servo(data_right, SERVO1)
     move_servo(data_left, SERVO2)
-    print("%s, %s" % (move_deg1, move_deg2))
+    print("%s, %s" % (data_left, data_right))
 
 def callback(data):
     global zigflag
