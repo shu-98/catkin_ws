@@ -2,6 +2,7 @@
 # coding:utf-8
 
 # thread processing
+import signal
 from twisted.internet import task, reactor
 import datetime
 import time
@@ -16,6 +17,9 @@ def time_print():
     t = datetime.datetime.today()
     d = t.hour*3600 + t.minute*60 + t.second +  t.microsecond*0.000001
     print "d:", d
+
+def handler(signum, frame):
+    print("signal={}".format(signum))
 
 def send():
     time_print()
@@ -35,3 +39,6 @@ if __name__ == "__main__":
 
     # twistedのイベントループを開始する
     reactor.run()
+
+    signal.signal(signal.SIGINT, handler)
+    signal.pause()

@@ -3,7 +3,6 @@
 
 import rospy
 from std_msgs.msg import Int16
-import pygame.mixer
 import threading
 import time
 import datetime
@@ -14,15 +13,6 @@ tempo_num = 384*2
 tempo = tempo_num
 
 pub = rospy.Publisher('cmd_M', Int16, queue_size=10)
-
-prev_time = 0.0
-curr_time = 0.0
-time_sub = 0.0
-
-def input_time():
-    t = datetime.datetime.today()
-    d = t.hour*3600 + t.minute*60 + t.second +  t.microsecond*0.000001
-    return d
 
 def callback(data):
     global tempo

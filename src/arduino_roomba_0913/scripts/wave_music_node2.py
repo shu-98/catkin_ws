@@ -3,7 +3,6 @@
 
 import rospy
 from std_msgs.msg import Int16
-import pygame.mixer
 import threading
 import time
 import datetime
@@ -12,24 +11,27 @@ import datetime
 import wave
 import pyaudio
 import time
-input_filename = "/home/roomba/catkin_ws/src/arduino_roomba/scripts/music/Call_Me_Maybe.wav"
+input_filename = "music/Call_Me_Maybe.wav"
 buffer_size = 4096
 
 cnt = 0
 
+first_flag = 1
+pub = rospy.Publisher('cmd_MC', Int16, queue_size=10)
+
 def music(data):
     global cnt
+    global first_flag
 
-    #time.sleep(0.3)
-    #time.sleep(0.38) #OC一日目
-    #time.sleep(0.08) #OC二日目
-    #time.sleep(0.25) #同じ部屋
-    #time.sleep(0.20) #別部屋8/30
-    #time.sleep(0.25) #別部屋9/05
     time.sleep(0.13) #別部屋9/07 #Skype2台
     time.sleep(cnt*0.03)
 
     rospy.loginfo("Starting music...")
+    if first_flag == 1:
+        pub.publish(1)  ## main_nodeに音楽が開始したことを伝える（log用の）
+        first_flag = 0
+    else:
+        pass
 
     wav_file = wave.open ( input_filename , 'rb' )
     p = pyaudio.PyAudio ()
