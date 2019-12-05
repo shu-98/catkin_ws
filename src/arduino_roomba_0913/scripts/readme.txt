@@ -25,9 +25,9 @@ joyの入力が来てるか確認
 ・fftest /dev/input/eventX    ## Xには任意の数字
 
 音が出ない
-・alsamixer  (十字キーでスピーカなど選んで"m"でミュート解除)
+・alsamixer  (十字キーでスピーカなど選んで"m"でミュート解除&十字キー上で"headphone"の音量をMAXに)
 *内蔵スピーカから音を出すことは結局できなかった.（外部スピーカならいけるので実験には支障ない？）
 
 "rosrun arduino_roomba main_node.py"で"~~, try sudo?"って言われる（ラズパイのGPIOはスーパーユーザしか利用できない）
 ・rosrunがsudoで実行できない
-・・"sudo -s"でrootユーザとしてログインし,ユーザ名が#担っている場合,rosrunできるはず.
+・・"sudo -s"でrootユーザとしてログインし,ユーザ名が#になっている場合,rosrunできるはず.
