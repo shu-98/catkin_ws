@@ -12,9 +12,9 @@ import csv # CSVファイルを扱うためのモジュールのインポート
 from datetime import datetime
 
 ## 書き込みファイルの設定
-filename = "log/log_%s.csv" % (datetime.now().strftime('%Y%m%d-%H%M%S'))
+filename = "/home/sou/catkin_ws/src/arduino_roomba_0913/scripts/log/log_%s.csv" % (datetime.now().strftime('%Y%m%d-%H%M%S'))
 writecsv = csv.writer(file(filename, 'w'), lineterminator='\n')
-writecsv.writerow(['datetime', 'second', 'joy_x', 'joy_z', 'tempo', 'bgm_start', 'roll', 'yaw', 'pitch'])
+writecsv.writerow(['datetime', 'second', 'joy_x', 'joy_z', 'tempo', 'bgm_start', 'accx', 'accy', 'accz', 'gyrox', 'gyroy', 'gyroz', 'magx', 'magy', 'magz', 'tempMPU9250'])
 
 joy_x = 0.0 ## ジョイスティックの入力を格納する
 joy_z = 0.0 ## ジョイスティックの入力を格納する
@@ -22,6 +22,7 @@ joy_z = 0.0 ## ジョイスティックの入力を格納する
 roll = ""
 yaw = ""
 pitch = ""
+imu_data = [""]*10
 
 program_start_time = 0.0
 
@@ -41,31 +42,36 @@ def write_joy(data):
 
     date = datetime.now()
     second = input_time() - program_start_time
-    writecsv.writerow([date, str(second), str(joy_x), str(joy_z), '0', '0', roll, yaw, pitch])
+    row = [date, str(second), str(joy_x), str(joy_z), '0', '0']
+    row.extend(imu_data)
+    writecsv.writerow(row)
 
 ## リズムが来たタイミングでログに書き込み
 def write_rhythm(data):
     date = datetime.now()
     second = input_time() - program_start_time
-    writecsv.writerow([date, str(second), str(joy_x), str(joy_z), '1', '0', roll, yaw, pitch])
+    row = [date, str(second), str(joy_x), str(joy_z), '1', '0']
+    row.extend(imu_data)
+    writecsv.writerow(row)
 
 ## 音楽が再生したタイミングでログに書き込み
 def write_music(data):
     date = datetime.now()
     second = input_time() - program_start_time
-    writecsv.writerow([date, str(second), str(joy_x), str(joy_z), '0', '1', roll, yaw, pitch])
+    row = [date, str(second), str(joy_x), str(joy_z), '0', '1']
+    row.extend(imu_data)
+    writecsv.writerow(row)
 
 def write_imu(data):
-    value = data.split()
-    if len(value) == 3:
-        roll = value[0]
-        yaw = value[1]
-        pitch = value[2]
-        date = datetime.now()
-        second = input_time() - program_start_time
-        writecsv.writerow([date, str(second), str(joy_x), str(joy_z), '0', '0', roll, yaw, pitch])
-    else:
-        print("WRONG IMU DATA!!")
+    global imu_data
+
+    temp = str(data).replace("\"", "").replace("data: ", "").replace("\\r\\n", "")
+    imu_data = temp.split(",")
+    date = datetime.now()
+    second = input_time() - program_start_time
+    row = [date, str(second), str(joy_x), str(joy_z), '0', '0']
+    row.extend(imu_data)
+    writecsv.writerow(row)
 
 def shutdown():
     # Always stop the Roomba when shutting down the node.
