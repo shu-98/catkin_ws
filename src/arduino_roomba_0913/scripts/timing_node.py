@@ -7,17 +7,16 @@ import threading
 import time
 import datetime
 
-#tempo_num = 20*4+10
-#tempo_num = 384
-tempo_num = 384*2
+tempo_num = 384*2   ## "Call_Me_Maybe"が384*2回テンポがあるので
 tempo = tempo_num
 
-pub = rospy.Publisher('cmd_M', Int16, queue_size=10)
+pub = rospy.Publisher('cmd_M', Int16, queue_size=10)    ## cmd_M信号をpublish
 
 def callback(data):
     global tempo
 
     rospy.loginfo(tempo)
+    ## 曲が一周したらmusic_nodeに信号を送る
     if tempo >= tempo_num:
         pub.publish(1)
         tempo = 1
@@ -26,11 +25,11 @@ def callback(data):
 
 def shutdown():
     # Always stop the Roomba when shutting down the node.
-    rospy.loginfo("Stopping the Music...")
+    rospy.loginfo("Stopping the Timing Node...")
 
 def listener():
     rospy.loginfo("listener()")
-    #cmd_JCへのメッセージを受け取るとdecide_angleを実行
+    ## cmd_ACへのメッセージを受け取るとcallbackを実行
     rospy.Subscriber('cmd_AC', Int16, callback)
     rospy.on_shutdown(shutdown)
     rospy.spin()

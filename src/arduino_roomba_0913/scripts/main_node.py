@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
 
-## GPIOピン(18,19)に繋げればそのあま使える？
+## 信号が来たタイミングでサーボ（ロボットの耳）を動かすノード
 
 import rospy
 from std_msgs.msg import Int16

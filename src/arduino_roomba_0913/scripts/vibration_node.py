@@ -56,7 +56,6 @@ class Vibrate:
         else:
             fcntl.ioctl(self.ff_joy, EVIOCRMFF, id)
 
-## 追加分
 f = Vibrate(EVENT_NUM)
 p = f.new_effect(1.0, 1.0, TIME_DELTA )
 

@@ -7,23 +7,22 @@ import threading
 import time
 import datetime
 
-# -*- coding: utf-8 -*-
 import wave
 import pyaudio
-import time
+
 input_filename = "/home/sou/catkin_ws/src/arduino_roomba_0913/scripts/music/Call_Me_Maybe.wav"
-buffer_size = 4096
+buffer_size = 4096  ## pyaudio に使うやつ（よくわからん）
 
-cnt = 0
+cnt = 0 ## 曲の再生回数を格納
 
-first_flag = 1
+first_flag = 1  ## 曲再生の一回目だけログに記録するので,それ用のフラグ
 pub = rospy.Publisher('cmd_MC', Int16, queue_size=10)
 
 def music(data):
     global cnt
     global first_flag
 
-    time.sleep(0.1) # 2019/1119
+    time.sleep(0.1) # 2019/11/19の調整
     time.sleep(cnt*0.03)
 
     rospy.loginfo("Starting music...")
@@ -33,6 +32,7 @@ def music(data):
     else:
         pass
 
+    ## よーわからんけどpyaudioの初期化
     wav_file = wave.open ( input_filename , 'rb' )
     p = pyaudio.PyAudio ()
     stream = p.open (
@@ -57,12 +57,9 @@ def shutdown():
     # Always stop the Roomba when shutting down the node.
     rospy.loginfo("Stopping the MusicNode...")
 
-    #p.terminate ()
-    #wav_file.close ()
-
 def listener():
     rospy.loginfo("listener()")
-    #cmd_JCへのメッセージを受け取るとdecide_angleを実行
+    ## cmd_Mへのメッセージを受け取るとmusicを実行
     rospy.Subscriber('cmd_M', Int16, music)
     rospy.on_shutdown(shutdown)
     rospy.spin()
