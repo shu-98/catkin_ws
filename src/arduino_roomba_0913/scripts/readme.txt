@@ -31,3 +31,6 @@ joyの入力が来てるか確認
 "rosrun arduino_roomba main_node.py"で"~~, try sudo?"って言われる（ラズパイのGPIOはスーパーユーザしか利用できない）
 ・rosrunがsudoで実行できない
 ・・"sudo -s"でrootユーザとしてログインし,ユーザ名が#になっている場合,rosrunできるはず.
+
+やたらpingが高い時がある
+・"sudo iwconfig wlp2s0 power off"でpower management機能をオフにすると早くなる（可能性がある）.

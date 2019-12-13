@@ -7,7 +7,7 @@ import rospy
 from std_msgs.msg import String
 import serial
 
-ser = serial.Serial('/dev/rfcomm1', 9600)   #　差し直しなどでttyACM0以外の時は適宜変更
+ser = serial.Serial('/dev/rfcomm2', 9600)   #　差し直しなどでttyACM0以外の時は適宜変更
 pub = rospy.Publisher('imu', String, queue_size=10)
 line = ""
 
@@ -15,13 +15,25 @@ line = ""
 if __name__ == "__main__":
     rospy.init_node('imu_read', anonymous=True)
 
-    try:
-        while True:
-            line = ""
+    while True:
+        line = ""
+        try:
             line = ser.readline()
-            if line != "":
-                print(line.rstrip())
-                pub.publish(line)
-    except KeyboardInterrupt:
-        ser.close()
-        print("finished imu_read...")
+        except KeyboardInterrupt:
+            ser.close()
+            print("finished imu_read...")
+            break
+        if line != "":
+            print(line.rstrip())
+            pub.publish(line)
+
+    # try:
+    #     while True:
+    #         line = ""
+    #         line = ser.readline()
+    #         if line != "":
+    #             print(line.rstrip())
+    #             pub.publish(line)
+    # except KeyboardInterrupt:
+    #     ser.close()
+    #     print("finished imu_read...")
