@@ -34,3 +34,8 @@ joyの入力が来てるか確認
 
 やたらpingが高い時がある
 ・"sudo iwconfig wlp2s0 power off"でpower management機能をオフにすると早くなる（可能性がある）.
+
+カメラのオートフォーカスなどの設定ができない
+・v4l2-ctl -d /dev/videoX --list-ctrls (Xは任意の番号)
+・v4l2-ctl -d /dev/videoX --set-ctrl=Y=Z (Yがカメラの設定名称,Zはvalue)
+参考文献：https://www.kurokesu.com/main/2016/01/16/manual-usb-camera-settings-in-linux/
