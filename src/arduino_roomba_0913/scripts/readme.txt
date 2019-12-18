@@ -22,7 +22,8 @@ joyの入力が来てるか確認
 ・rostopic echo /joy
 
 振動来るか確認
-・fftest /dev/input/eventX    ## Xには任意の数字
+・sudo fftest /dev/input/eventX    ## Xには任意の数字
+・"cat /proc/bus/input/devices"でeventの番号を調べられる.
 
 音が出ない
 ・alsamixer  (十字キーでスピーカなど選んで"m"でミュート解除&十字キー上で"headphone"の音量をMAXに)

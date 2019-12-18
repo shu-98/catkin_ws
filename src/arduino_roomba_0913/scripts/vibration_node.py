@@ -4,6 +4,7 @@
 import fcntl, struct, array, time
 import rospy
 from std_msgs.msg import Int16
+import datetime
 
 ## /dev/input/eventX の"X"を任意のやつを変える ##
 EVENT_NUM = "/dev/input/event15"
@@ -11,7 +12,16 @@ EVENT_NUM = "/dev/input/event15"
 EVIOCRMFF = 0x40044581
 EVIOCSFF = 0x40304580
 LOG_CLASS_ON = False
-TIME_DELTA = 50
+TIME_DELTA = 100
+
+import signal
+from twisted.internet import task, reactor
+
+INTERVAL = 0.5
+
+cy_curr_time = 500.0
+cy_prev_time = 0.0
+cycle_first_flag = 1
 
 class Vibrate:
 
@@ -56,14 +66,76 @@ class Vibrate:
         else:
             fcntl.ioctl(self.ff_joy, EVIOCRMFF, id)
 
-f = Vibrate(EVENT_NUM)
-p = f.new_effect(1.0, 1.0, TIME_DELTA )
+def input_time():
+    t = datetime.datetime.today()
+    d = t.hour*3600 + t.minute*60 + t.second +  t.microsecond*0.000001
+    return d
 
-def callback(data):
+f = Vibrate(EVENT_NUM)
+p = f.new_effect(0.0, 1.0, TIME_DELTA )
+p1 = f.new_effect(0.0, 0.1, TIME_DELTA )
+p2 = f.new_effect(0.0, 0.4, TIME_DELTA )
+p3 = f.new_effect(0.0, 1.0, TIME_DELTA )
+
+def loop():
     f.play_efect((p))
     print("vib!")
     time.sleep(TIME_DELTA / 1000.0)
     f.stop_effect((p))
+
+def loop_start():
+    # 実行間隔
+    interval = INTERVAL
+
+    # ループに関数を登録して、指定された間隔で実行する
+    instance = task.LoopingCall(loop)
+    instance.start(interval)
+
+    # twistedのイベントループを開始する
+    reactor.run()
+
+    signal.signal(signal.SIGINT, handler)
+    signal.pause()
+
+def callback(data):
+    global cycle_first_flag
+    global cy_prev_time
+    global cy_curr_time
+
+    time_sub = cy_curr_time-cy_prev_time
+
+    if cycle_first_flag == 1:
+        if time_sub < 0.15 and time_sub > -0.15:
+            cycle_first_flag = 0
+            loop_start()
+        else:
+            cy_prev_time = cy_curr_time
+            cy_curr_time = input_time()
+
+    # f.play_efect((p1))
+    # print("vib!")
+    # time.sleep(TIME_DELTA / 1000.0 * 2/7 )
+    # f.stop_effect((p1))
+    #
+    # f.play_efect((p2))
+    # print("vib!")
+    # time.sleep(TIME_DELTA / 1000.0 / 7)
+    # f.stop_effect((p2))
+    #
+    # f.play_efect((p3))
+    # print("vib!")
+    # time.sleep(TIME_DELTA / 1000.0 / 7)
+    # f.stop_effect((p3))
+    #
+    # f.play_efect((p2))
+    # print("vib!")
+    # time.sleep(TIME_DELTA / 1000.0 / 7)
+    # f.stop_effect((p2))
+    #
+    # f.play_efect((p1))
+    # print("vib!")
+    # time.sleep(TIME_DELTA / 1000.0 * 2/7)
+    # f.stop_effect((p1))
 
 def shutdown():
     f.forget_effect((p))

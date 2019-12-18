@@ -21,10 +21,9 @@ ser = serial.Serial('/dev/ttyACM0', 9600)   #　差し直しなどでttyACM0以�
 
 #　サーボの初期設定
 SERVO_INIT_DEGREE = 90
-RIGHT_SERVO_INIT_DEGREE = SERVO_INIT_DEGREE+7    ## 足すと時計回り,引くと反時計回り
-LEFT_SERVO_INIT_DEGREE = SERVO_INIT_DEGREE-3
+RIGHT_SERVO_INIT_DEGREE = SERVO_INIT_DEGREE+2    ## 足すと時計回り,引くと反時計回り
+LEFT_SERVO_INIT_DEGREE = SERVO_INIT_DEGREE+6
 CYCLE_ANGLE = 15
-zigflag = 0
 
 cy_curr_time = 500.0
 cy_prev_time = 0.0
@@ -41,9 +40,9 @@ def input_time():
     return d
 
 def loop():
-    move_servo(RIGHT_SERVO_INIT_DEGREE, LEFT_SERVO_INIT_DEGREE)
-    time.sleep(0.1)
     move_servo(RIGHT_SERVO_INIT_DEGREE-CYCLE_ANGLE, LEFT_SERVO_INIT_DEGREE+CYCLE_ANGLE)
+    time.sleep(0.1)
+    move_servo(RIGHT_SERVO_INIT_DEGREE, LEFT_SERVO_INIT_DEGREE)
 
 def loop_start():
     # 実行間隔
@@ -68,12 +67,11 @@ def callback(data):
 
     if cycle_first_flag == 1:
         if time_sub < 0.15 and time_sub > -0.15:
-            loop_start()
             cycle_first_flag = 0
+            loop_start()
         else:
             cy_prev_time = cy_curr_time
             cy_curr_time = input_time()
-            return
 
 def shutdown():
     # Always stop the Roomba when shutting down the node.
