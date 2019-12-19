@@ -17,7 +17,7 @@ import signal
 from twisted.internet import task, reactor
 
 INTERVAL = 0.5
-SLEEP = 0.11
+SLEEP = 0.36
 
 cycle_first_flag = 1
 

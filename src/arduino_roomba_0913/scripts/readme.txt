@@ -1,14 +1,13 @@
 ラズパイ側
-・ar_roomba.launch
+・ar_roomba.launch (teleop, roomba500)
 ・main_node
 
 PC側
 ・roscore
-・vibration_node
 ・joy_node
 ・cycle_node
-・roslaunch arduino_roomba ar_music.launch
-・write_log
+・roslaunch arduino_roomba ar_music.launch (wave_music, timing, vibration)
+・roslaunch arduino_roomba ar_log.launch (imu_read, write_log)
 
 ar_roomba.launchの前には，
 ・ラズパイにシリアルケーブルを挿す

@@ -14,6 +14,8 @@ from twisted.internet import task, reactor
 
 INTERVAL = 0.5
 
+SLEEP = 0.15
+
 # arduino
 import serial
 ser = serial.Serial('/dev/ttyACM0', 9600)   #　差し直しなどでttyACM0以外の時は適宜変更
@@ -39,6 +41,8 @@ def loop():
 def loop_start():
     # 実行間隔
     interval = INTERVAL
+
+    time.sleep(SLEEP)
 
     # ループに関数を登録して、指定された間隔で実行する
     instance = task.LoopingCall(loop)
