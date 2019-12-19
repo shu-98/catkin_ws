@@ -7,7 +7,7 @@ import threading
 import time
 import datetime
 
-tempo_num = 384*2   ## "Call_Me_Maybe"が384*2回テンポがあるので
+tempo_num = 384   ## "Call_Me_Maybe"が384*2回テンポがあるので
 tempo = tempo_num
 
 pub = rospy.Publisher('cmd_M', Int16, queue_size=10)    ## cmd_M信号をpublish

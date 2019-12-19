@@ -7,7 +7,7 @@ import rospy
 from std_msgs.msg import String
 import serial
 
-ser = serial.Serial('/dev/rfcomm2', 9600)   #　差し直しなどでttyACM0以外の時は適宜変更
+ser = serial.Serial('/dev/rfcomm1', 9600)   #　差し直しなどでttyACM0以外の時は適宜変更
 pub = rospy.Publisher('imu', String, queue_size=10)
 line = ""
 

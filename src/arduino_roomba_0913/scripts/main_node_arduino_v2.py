@@ -5,7 +5,6 @@
 
 import rospy
 from std_msgs.msg import Int16
-import datetime
 import sys
 import subprocess
 import time
@@ -25,19 +24,12 @@ RIGHT_SERVO_INIT_DEGREE = SERVO_INIT_DEGREE+2    ## 足すと時計回り,引く
 LEFT_SERVO_INIT_DEGREE = SERVO_INIT_DEGREE+6
 CYCLE_ANGLE = 15
 
-cy_curr_time = 500.0
-cy_prev_time = 0.0
 cycle_first_flag = 1
 
 def move_servo(data_right, data_left):
     buff = str(data_right) + "r" + str(data_left) + "l"
     ser.write(buff)
     print("%s, %s" % (data_left, data_right))
-
-def input_time():
-    t = datetime.datetime.today()
-    d = t.hour*3600 + t.minute*60 + t.second +  t.microsecond*0.000001
-    return d
 
 def loop():
     move_servo(RIGHT_SERVO_INIT_DEGREE-CYCLE_ANGLE, LEFT_SERVO_INIT_DEGREE+CYCLE_ANGLE)
@@ -60,18 +52,11 @@ def loop_start():
 
 def callback(data):
     global cycle_first_flag
-    global cy_prev_time
-    global cy_curr_time
-
-    time_sub = cy_curr_time-cy_prev_time
 
     if cycle_first_flag == 1:
-        if time_sub < 0.15 and time_sub > -0.15:
-            cycle_first_flag = 0
-            loop_start()
-        else:
-            cy_prev_time = cy_curr_time
-            cy_curr_time = input_time()
+        cycle_first_flag = 0
+        loop_start()
+
 
 def shutdown():
     # Always stop the Roomba when shutting down the node.

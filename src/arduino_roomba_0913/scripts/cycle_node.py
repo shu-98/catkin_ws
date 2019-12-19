@@ -31,8 +31,6 @@ def handler(signum, frame):
 def send():
     time_print()
     pub.publish(1)
-    time.sleep(0.1)
-    pub.publish(1)
 
 ##
 if __name__ == "__main__":

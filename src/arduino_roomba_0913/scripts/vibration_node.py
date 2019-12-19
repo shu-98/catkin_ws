@@ -4,10 +4,9 @@
 import fcntl, struct, array, time
 import rospy
 from std_msgs.msg import Int16
-import datetime
 
 ## /dev/input/eventX の"X"を任意のやつを変える ##
-EVENT_NUM = "/dev/input/event15"
+EVENT_NUM = "/dev/input/event14"
 
 EVIOCRMFF = 0x40044581
 EVIOCSFF = 0x40304580
@@ -18,9 +17,8 @@ import signal
 from twisted.internet import task, reactor
 
 INTERVAL = 0.5
+SLEEP = 0.11
 
-cy_curr_time = 500.0
-cy_prev_time = 0.0
 cycle_first_flag = 1
 
 class Vibrate:
@@ -66,26 +64,39 @@ class Vibrate:
         else:
             fcntl.ioctl(self.ff_joy, EVIOCRMFF, id)
 
-def input_time():
-    t = datetime.datetime.today()
-    d = t.hour*3600 + t.minute*60 + t.second +  t.microsecond*0.000001
-    return d
+t1 = TIME_DELTA / 1000.0 * 1/7
+t2 = TIME_DELTA / 1000.0 * 1/7
+t3 = TIME_DELTA / 1000.0 * 3/7
 
 f = Vibrate(EVENT_NUM)
 p = f.new_effect(0.0, 1.0, TIME_DELTA )
-p1 = f.new_effect(0.0, 0.1, TIME_DELTA )
-p2 = f.new_effect(0.0, 0.4, TIME_DELTA )
-p3 = f.new_effect(0.0, 1.0, TIME_DELTA )
+p1 = f.new_effect(0.0, 0.1, t1 )
+p2 = f.new_effect(0.0, 0.4, t2 )
+p3 = f.new_effect(0.0, 1.0, t3 )
+
+def vibration_power(event, event_time):
+    f.play_efect(event)
+    time.sleep(event_time)
+    f.stop_effect(event)
 
 def loop():
-    f.play_efect((p))
-    print("vib!")
-    time.sleep(TIME_DELTA / 1000.0)
-    f.stop_effect((p))
+    print("Vib!")
+    vibration_power(p1, t1)
+    vibration_power(p2, t2)
+    vibration_power(p3, t3)
+    vibration_power(p2, t2)
+    vibration_power(p1, t1)
+
+    # f.play_efect((p))
+    # print("vib!")
+    # time.sleep(TIME_DELTA / 1000.0)
+    # f.stop_effect((p))
 
 def loop_start():
     # 実行間隔
     interval = INTERVAL
+
+    time.sleep(SLEEP)
 
     # ループに関数を登録して、指定された間隔で実行する
     instance = task.LoopingCall(loop)
@@ -99,18 +110,10 @@ def loop_start():
 
 def callback(data):
     global cycle_first_flag
-    global cy_prev_time
-    global cy_curr_time
-
-    time_sub = cy_curr_time-cy_prev_time
 
     if cycle_first_flag == 1:
-        if time_sub < 0.15 and time_sub > -0.15:
-            cycle_first_flag = 0
-            loop_start()
-        else:
-            cy_prev_time = cy_curr_time
-            cy_curr_time = input_time()
+        cycle_first_flag = 0
+        loop_start()
 
     # f.play_efect((p1))
     # print("vib!")
@@ -140,7 +143,7 @@ def callback(data):
 def shutdown():
     f.forget_effect((p))
     # Always stop the Roomba when shutting down the node.
-    rospy.loginfo("Stopping the Roomba...")
+    rospy.loginfo("Stopping the Vibration...")
 
 if __name__ == '__main__':
     rospy.init_node('node_vib', anonymous=True)
