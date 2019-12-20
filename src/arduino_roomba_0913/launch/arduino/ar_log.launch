@@ -4,6 +4,6 @@
   <node pkg = "arduino_roomba" name="imu" type="imu_read.py"/>
 
  <!-- main -->
-  <node pkg = "arduino_roomba" name="log" type="write_log_imu.py"/>
+  <node pkg = "arduino_roomba" name="log" type="write_log.py"/>
 
 </launch>

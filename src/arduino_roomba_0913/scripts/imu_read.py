@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
 
-## 各ノードに"INTERVAL"秒ごとに信号を送るノード
+## IMUからのデータをBLEシリアル通信で受け取り,Write_logにデータを送信する
 
 import rospy
 from std_msgs.msg import String
@@ -11,7 +11,6 @@ ser = serial.Serial('/dev/rfcomm2', 9600)   #　差し直しなどでttyACM0以�
 pub = rospy.Publisher('imu', String, queue_size=10)
 line = ""
 
-##
 if __name__ == "__main__":
     rospy.init_node('imu_read', anonymous=True)
 
@@ -26,14 +25,3 @@ if __name__ == "__main__":
         if line != "":
             print(line.rstrip())
             pub.publish(line)
-
-    # try:
-    #     while True:
-    #         line = ""
-    #         line = ser.readline()
-    #         if line != "":
-    #             print(line.rstrip())
-    #             pub.publish(line)
-    # except KeyboardInterrupt:
-    #     ser.close()
-    #     print("finished imu_read...")

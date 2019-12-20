@@ -4,7 +4,7 @@
   <node pkg = "arduino_roomba" name="timing" type="timing_node.py"/>
 
  <!-- music node -->
-  <node pkg = "arduino_roomba" name="music" type="wave_music_node2.py"/>
+  <node pkg = "arduino_roomba" name="music" type="wave_music_node.py"/>
 
  <!-- music node -->
   <node pkg = "arduino_roomba" name="vibration" type="vibration_node.py"/>

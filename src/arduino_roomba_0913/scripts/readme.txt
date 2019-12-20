@@ -14,6 +14,9 @@ ar_roomba.launchの前には，
 ・sudo chmod 777 /dev/ttyUSB0
 ・ルンバの電源をつける
 
+main_nodeの前には,
+・"sudo chmod 777 /dev/ttyACM0"
+
 joy_nodeの前には，
 ・ds4を有線で挿す（何故か無線だとタッチパネルの入力しかとってくれない&「ds4dr」を使うと振動機能が使えないらしい）
 
@@ -34,7 +37,8 @@ joyの入力が来てるか確認
 ・・"sudo -s"でrootユーザとしてログインし,ユーザ名が#になっている場合,rosrunできるはず.
 
 やたらpingが高い時がある
-・"sudo iwconfig wlp2s0 power off"でpower management機能をオフにすると早くなる（可能性がある）.
+・"sudo iwconfig wlp2s0 power off"でpower management機能をオフにすると早くなる.
+・両方のPCでやる必要あり
 
 カメラのオートフォーカスなどの設定ができない
 ・v4l2-ctl -d /dev/videoX --list-ctrls (Xは任意の番号)

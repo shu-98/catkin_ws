@@ -17,11 +17,11 @@ import signal
 from twisted.internet import task, reactor
 
 INTERVAL = 0.5
-SLEEP = 0.36
+SLEEP = 0.36    ## BGMに合わせるため
 
 cycle_first_flag = 1
 
-class Vibrate:
+class Vibrate:  ## 振動用のクラス,どっかから引っ張ってきたのでよくわからん
 
     def __init__(self, file):
         self.ff_joy = open(file, "r+")
@@ -77,7 +77,7 @@ p3 = f.new_effect(0.0, 1.0, t3 )
 def vibration_power(event, event_time):
     f.play_efect(event)
     time.sleep(event_time)
-    f.stop_effect(event)
+    f.stop_effect(event)    
 
 def loop():
     print("Vib!")
@@ -86,11 +86,6 @@ def loop():
     vibration_power(p3, t3)
     vibration_power(p2, t2)
     vibration_power(p1, t1)
-
-    # f.play_efect((p))
-    # print("vib!")
-    # time.sleep(TIME_DELTA / 1000.0)
-    # f.stop_effect((p))
 
 def loop_start():
     # 実行間隔
@@ -114,31 +109,6 @@ def callback(data):
     if cycle_first_flag == 1:
         cycle_first_flag = 0
         loop_start()
-
-    # f.play_efect((p1))
-    # print("vib!")
-    # time.sleep(TIME_DELTA / 1000.0 * 2/7 )
-    # f.stop_effect((p1))
-    #
-    # f.play_efect((p2))
-    # print("vib!")
-    # time.sleep(TIME_DELTA / 1000.0 / 7)
-    # f.stop_effect((p2))
-    #
-    # f.play_efect((p3))
-    # print("vib!")
-    # time.sleep(TIME_DELTA / 1000.0 / 7)
-    # f.stop_effect((p3))
-    #
-    # f.play_efect((p2))
-    # print("vib!")
-    # time.sleep(TIME_DELTA / 1000.0 / 7)
-    # f.stop_effect((p2))
-    #
-    # f.play_efect((p1))
-    # print("vib!")
-    # time.sleep(TIME_DELTA / 1000.0 * 2/7)
-    # f.stop_effect((p1))
 
 def shutdown():
     f.forget_effect((p))
