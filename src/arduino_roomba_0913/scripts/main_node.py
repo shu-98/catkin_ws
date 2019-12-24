@@ -43,6 +43,8 @@ def loop_start():
     interval = INTERVAL
 
     time.sleep(SLEEP)
+    if interval == 0.33333333:
+        time.sleep(0.17)
 
     # ループに関数を登録して、指定された間隔で実行する
     instance = task.LoopingCall(loop)

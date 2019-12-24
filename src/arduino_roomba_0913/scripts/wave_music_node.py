@@ -12,8 +12,8 @@ import pyaudio
 first_flag = 1
 
 path = "/home/sou/catkin_ws/src/arduino_roomba_0913/scripts/music/"
-music = rospy.get_param('music', "Call_Me_Maybe.wav")
-input_filename = path + music
+music_name = rospy.get_param('music', "Call_Me_Maybe.wav")
+input_filename = path + music_name
 # input_filename = "/home/sou/catkin_ws/src/arduino_roomba_0913/scripts/music/Call_Me_Maybe.wav"
 buffer_size = 4096  ## pyaudio に使うやつ（よくわからん）
 
@@ -27,6 +27,10 @@ def music(data):
     if first_flag == 1:
         pub.publish(1)  ## main_nodeに音楽が開始したことを伝える（log用の）
         first_flag = 0
+        if music_name == "Call_Me_Maybe.wav":
+            time.sleep(0.10)
+        if music_name == "180_metronome.wav":ll
+            time.sleep(0.102)
 
         rospy.loginfo("Starting music...")
         pub.publish(1)  ## main_nodeに音楽が開始したことを伝える（log用の）
@@ -49,8 +53,8 @@ def music(data):
                     remain -= buffer_size
 
                 stream.close ()
-                if music == "Call_Me_Maybe.wav":
-                    time.sleep(0.45)
+                if music_name == "Call_Me_Maybe.wav":
+                    time.sleep(0.15)
         except KeyboardInterrupt:
             p.terminate ()
             wav_file.close ()

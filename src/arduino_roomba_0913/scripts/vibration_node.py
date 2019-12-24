@@ -6,7 +6,7 @@ import rospy
 from std_msgs.msg import Int16
 
 ## /dev/input/eventX の"X"を任意のやつを変える ##
-EVENT_NUM = "/dev/input/event14"
+EVENT_NUM = "/dev/input/event15"
 
 EVIOCRMFF = 0x40044581
 EVIOCSFF = 0x40304580
@@ -18,6 +18,9 @@ from twisted.internet import task, reactor
 
 INTERVAL = rospy.get_param("interval", 0.5)
 SLEEP = 0.36    ## BGMに合わせるため
+
+if INTERVAL == 0.33333333:
+    TIME_DELTA = TIME_DELTA*2/3
 
 cycle_first_flag = 1
 
@@ -92,6 +95,10 @@ def loop_start():
     interval = INTERVAL
 
     time.sleep(SLEEP)
+    if interval == 0.33333333:
+        time.sleep(0.1)
+    if interval == 0.33333333:
+        time.sleep(0.2)
 
     # ループに関数を登録して、指定された間隔で実行する
     instance = task.LoopingCall(loop)
