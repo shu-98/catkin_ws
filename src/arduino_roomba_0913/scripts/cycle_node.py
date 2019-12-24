@@ -12,7 +12,7 @@ import time
 import rospy
 from std_msgs.msg import Int16
 
-INTERVAL = 0.5
+INTERVAL = rospy.get_param("interval", 0.5)
 
 ## cmd_ACの信号を初期化
 pub = rospy.Publisher('cmd_AC', Int16, queue_size=10)

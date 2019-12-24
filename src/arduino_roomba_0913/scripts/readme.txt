@@ -51,3 +51,14 @@ BLEの加速度センサの使い方
 ・"sudo rfcomm bind 1 30:AE:A4:1F:1F:6A"
 ・"sudo chmod 777 /dev/rfcomm1"
 ・"rosrun arduino_roomba imu_read.py"
+
+rosparamの使い方
+・rosコードでコマンドラインみたいな感じで使える
+・"rosparam set $(変数名) $(値)"みたいな感じでパラメータをセットする
+・ROSのコードに"rospy.get_param("$(変数名)")"みたいな感じでgetできる
+（変数名はパスのような扱いになっており,'~'をつけたら相対パスになったりするらしい（うまく行かなかったけど））
+例）
+  $ rosparam set /hoge 5
+  >> print(rospy.get_param("hoge"))
+  5
+・実験で使うときは"rosparam set /interval X"でBPMが変えられるはず

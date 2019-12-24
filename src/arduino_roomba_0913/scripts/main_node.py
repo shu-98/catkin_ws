@@ -12,7 +12,7 @@ import time
 import signal
 from twisted.internet import task, reactor
 
-INTERVAL = 0.5
+INTERVAL = rospy.get_param('interval', 0.5)
 
 SLEEP = 0.15
 

@@ -16,7 +16,7 @@ TIME_DELTA = 100
 import signal
 from twisted.internet import task, reactor
 
-INTERVAL = 0.5
+INTERVAL = rospy.get_param("interval", 0.5)
 SLEEP = 0.36    ## BGMに合わせるため
 
 cycle_first_flag = 1
@@ -77,7 +77,7 @@ p3 = f.new_effect(0.0, 1.0, t3 )
 def vibration_power(event, event_time):
     f.play_efect(event)
     time.sleep(event_time)
-    f.stop_effect(event)    
+    f.stop_effect(event)
 
 def loop():
     print("Vib!")
